@@ -2,42 +2,31 @@
 
 /* Controllers */
 
-var contactsControllers = angular.module('contactsControllers', []);
+var contactsControllers = angular.module('contactsControllers', [])
 
-contactsControllers.controller('ContactListCtrl', ['$scope', 'Contact', 'APP_CONTANTS',
-  function($scope, Contact, APP_CONTANTS) {
-    $scope.users = [];
+.controller('contactListCtrl', ['$scope', 'storeData', 'APP_CONTANTS',
+  function($scope, storeData, APP_CONTANTS) {
 
-    // Get contacts from JSON file using to service
-    Contact.getContacts(function(data) {
-        $scope.users = data.users;
-      },
-      function(data) {
-        $scope.users = [];
-    });
+    if (typeof storeData.response == 'undefined') {
+      storeData.then(function(data) {
+        storeData.response = data.response;
+        $scope.users = storeData.response.users;
+      });
+    } else {
+      $scope.users = storeData.response.users;
+    }
 
     $scope.orderProp = 'id';
     $scope.APP_CONTANTS = APP_CONTANTS;
-  }]);
+  }])
 
-contactsControllers.controller('ContactDetailCtrl', ['$scope', '$routeParams', 'Contact', 'APP_CONTANTS', 'PersonClass', 'ContactClass', 'GroupClass',
-  function($scope, $routeParams, Contact, APP_CONTANTS, PersonClass, ContactClass, GroupClass) {
+.controller('contactDetailCtrl', ['$scope', '$routeParams', 'requestData', 'APP_CONTANTS', 'PersonClass', 'ContactClass', 'GroupClass',
+  function($scope, $routeParams, requestData, APP_CONTANTS, PersonClass, ContactClass, GroupClass) {
 
-    // $scope.contact = Contact.get({phoneId: $routeParams.phoneId}, function(contact) {
+    // $scope.contact = requestData.get({phoneId: $routeParams.phoneId}, function(contact) {
     //   $scope.mainImageUrl = contact.images[0];
     // });
 
-    // console.log(helloTo.sayHelloTo('MyFriend'));
-    var a = new PersonClass();
-    var b = new ContactClass();
-    var c = new GroupClass();
-    a.name = 'aa';
-    b.name = 'bb';
-    c.name = 'cc';
-
-    console.log(a.__self);
-    console.log(b.__self);
-    console.log(c.__self);
     $scope.setImage = function(imageUrl) {
       //$scope.mainImageUrl = imageUrl;
     }
@@ -49,5 +38,3 @@ contactsControllers.controller('ContactDetailCtrl', ['$scope', '$routeParams', '
 
     $scope.APP_CONTANTS = APP_CONTANTS;
   }]);
-
-

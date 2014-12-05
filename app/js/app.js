@@ -15,19 +15,19 @@ var contactApp = angular.module('contactApp', [
     $routeProvider.
       when('/users', {
         templateUrl: 'partials/user-list.html',
-        controller: 'ContactListCtrl'
+        controller: 'contactListCtrl'
       }).
       when('/user/:action/:userId/', {
         templateUrl: 'partials/user-detail.html',
-        controller: 'ContactDetailCtrl'
+        controller: 'contactDetailCtrl'
       }).
       when('/groups', {
         templateUrl: 'partials/group-list.html',
-        controller: 'ContactListCtrl'
+        controller: 'contactListCtrl'
       }).
       when('/group/:action/:groupId', {
         templateUrl: 'partials/group-detail.html',
-        controller: 'ContactDetailCtrl'
+        controller: 'contactDetailCtrl'
       }).
       otherwise({
         redirectTo: '/users'

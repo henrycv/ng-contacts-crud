@@ -4,32 +4,51 @@
 
 angular.module('contactServices', ['ngResource'])
 
-.factory('Contact', ['$http', function($http) {
-    var _cacheRequest = true,
+.factory('requestData', ['$http', 'APP_CONTANTS', function($http, APP_CONTANTS) {
+
+    var url = APP_CONTANTS.urlJsonFile,
         _settings = {
-        method: 'GET',
-        url: 'js/contacts/contacts.json',
-        cache: _cacheRequest,
-        headers: {
-            'Content-Type': 'application/json'
-        }};
-
-    this.setSetting = function(key, value) {
-        if (typeof _settings[key] !== 'undefined') {
-            _settings[key] = value;
+            method: 'GET',
+            cache: false,
+            headers: {
+                'Content-Type': 'application/json'
+            }
         };
-    };
 
-    this.getContacts = function(success, error) {
-       $http(_settings).
-        success(success).
-        error(error);
-    };
+    return {
+        getWeather: function() {
+            return $http.get(url, _settings)
+                .then(function(response) {
+                    if (typeof response.data === 'object') {
+                        return response.data;
+                    } else {
+                        // invalid response
+                        return $q.reject(response.data);
+                    }
 
-    return this;
+                }, function(response) {
+                    // something went wrong
+                    return $q.reject(response.data);
+                });
+        }
+    };
 }])
 
-.factory('PersonClass', [function() {
+.factory('storeData', ['requestData', function(requestData) {
+
+    return requestData.getWeather()
+        .then(function(data) {
+            return {
+                response: data
+            };
+        }, function(error) {
+            return {
+                response: null
+            };
+        });
+}])
+
+.factory('personClass', [function() {
     return function() {
         this.__self = this;
         this.name = null;
@@ -41,12 +60,12 @@ angular.module('contactServices', ['ngResource'])
     };
 }])
 
-.factory('ContactClass', ['PersonClass', function(PersonClass) {
+.factory('contactClass', ['personClass', function(personClass) {
     return function() {
         $.extend(
             true,
             this,
-            new PersonClass()
+            new personClass()
         );
 
         this.__self = this;
@@ -57,7 +76,7 @@ angular.module('contactServices', ['ngResource'])
     };
 }])
 
-.factory('GroupClass', function(PersonClass) {
+.factory('groupClass', function(personClass) {
     return function() {
         this.__self = this;
         this.id;
