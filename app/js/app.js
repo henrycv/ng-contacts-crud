@@ -23,7 +23,7 @@ var contactApp = angular.module('contactApp', [
       }).
       when('/groups', {
         templateUrl: 'partials/group-list.html',
-        controller: 'contactListCtrl'
+        controller: 'groupListCtrl'
       }).
       when('/group/:action/:groupId', {
         templateUrl: 'partials/group-detail.html',

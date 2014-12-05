@@ -20,6 +20,7 @@ var contactsControllers = angular.module('contactsControllers', [])
     $scope.APP_CONTANTS = APP_CONTANTS;
   }])
 
+
 .controller('contactDetailCtrl', ['$scope', '$routeParams', 'requestData', 'APP_CONTANTS', 'PersonClass', 'ContactClass', 'GroupClass',
   function($scope, $routeParams, requestData, APP_CONTANTS, PersonClass, ContactClass, GroupClass) {
 
@@ -37,4 +38,20 @@ var contactsControllers = angular.module('contactsControllers', [])
     };
 
     $scope.APP_CONTANTS = APP_CONTANTS;
-  }]);
+  }])
+
+
+.controller('groupListCtrl', ['$scope', 'storeData',
+  function($scope, storeData) {
+
+    if (typeof storeData.response == 'undefined') {
+      storeData.then(function(data) {
+        storeData.response = data.response;
+        $scope.groups = storeData.response.groups;
+      });
+    } else {
+      $scope.groups = storeData.response.groups;
+    }
+
+    $scope.orderProp = 'id';
+  }])

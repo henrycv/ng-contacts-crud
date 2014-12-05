@@ -16,7 +16,7 @@ angular.module('contactServices', ['ngResource'])
         };
 
     return {
-        getWeather: function() {
+        getData: function() {
             return $http.get(url, _settings)
                 .then(function(response) {
                     if (typeof response.data === 'object') {
@@ -36,7 +36,7 @@ angular.module('contactServices', ['ngResource'])
 
 .factory('storeData', ['requestData', function(requestData) {
 
-    return requestData.getWeather()
+    return requestData.getData()
         .then(function(data) {
             return {
                 response: data
