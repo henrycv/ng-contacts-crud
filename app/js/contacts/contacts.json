@@ -1,0 +1,33 @@
+{
+	"users": [
+		{"id": 1, "name": "Joaquín Montes de Oca", "gender": "male", "age": 22},
+		{"id": 2, "name": "Sebastián Favale", "gender": "male", "age": 29, "image": "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfp1/t1.0-1/p160x160/10258601_10203805406326183_5810002257813218045_n.jpg"},
+		{"id": 3, "name": "Federico Martínez", "gender": "male", "age": 27, "image": "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/t1.0-1/p160x160/10487276_10152906238071521_8245769933565456608_n.jpg"},
+		{"id": 4, "name": "Pablo Vergne", "gender": "male", "age": 23, "image": "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfp1/t1.0-1/p160x160/10150789_10202966503898812_6496889618529440410_n.jpg"},
+		{"id": 5, "name": "Ariel Gesto", "gender": "male", "age": 35, "image": "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/t1.0-1/c40.0.160.160/p160x160/10013891_10152396596259413_6861094946325058451_n.jpg"},
+		{"id": 6, "name": "Federico Dalvano", "gender": "male", "age": 22, "image": "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpf1/t1.0-1/p160x160/1939558_10203245262029827_726210938_n.jpg"},
+		{"id": 7, "name": "Lucas Barros", "gender": "male", "age": 24, "image": "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/v/t1.0-1/c31.31.384.384/s160x160/530293_10150748118254166_1405847817_n.jpg?oh=2a787dca70c7eec34443e05e57ebfeb6&oe=54273CAF&__gda__=1411054793_21a1fde7f914bbd1fc92ff7883fde86d"},
+		{"id": 8, "name": "Ximena Pisani", "gender": "female", "age": 35, "image": "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/t1.0-1/c47.47.587.587/s160x160/547317_10150911100217381_607691819_n.jpg"},
+		{"id": 9, "name": "Urania Toruño", "gender": "female", "age": 29, "image": "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/t1.0-1/c16.0.160.160/p160x160/1465322_10153616884620621_479094645_n.jpg"},
+		{"id": 10, "name": "Silvana Gutierrez", "gender": "female", "age": 28, "image": "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpf1/t1.0-1/c0.0.160.160/p160x160/1977021_10203034423279314_136687300_n.jpg"},
+		{"id": 24, "name": "Ramiro Camino", "gender": "male", "age": 27, "image": "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfa1/t1.0-1/c0.3.160.160/p160x160/994242_10202226573726957_1657141319_n.jpg"},
+		{"id": 115, "name": "Joyce Moschen", "gender": "female", "age": 26, "image": "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/t1.0-1/c0.0.160.160/p160x160/1391557_10151659606470666_386594405_n.jpg"},
+		{"id": 75, "name": "Carolina Kaufer", "gender": "female", "age": 27, "image": "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/t1.0-1/p160x160/10449455_10152299164793451_1417105149273093324_n.jpg"},
+		{"id": 68, "name": "Pablo Somodi", "gender": "male", "age": 23, "image": "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/t1.0-1/c170.50.621.621/s160x160/552417_4140405665787_640867822_n.jpg"},
+		{"id": 26, "name": "Martín Forte", "gender": "male", "age": 25, "image": "https://scontent-a-mia.xx.fbcdn.net/hprofile-xfa1/l/t1.0-1/p160x160/10406481_10203337395532421_3101608046007756857_n.jpg"},
+		{"id": 89, "name": "Mukenio", "gender": "male", "age": 7, "image": "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/t1.0-1/p160x160/1457742_1379144455670040_813900170_n.jpg"},
+		{"id": 100, "name": "Patricio", "age": 1, "image": "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpf1/t1.0-1/c0.0.160.160/p160x160/10151315_1404502333149459_1996590683_n.jpg"},
+		{"id": 78, "name": "Doris Perez", "gender": "female", "age": 27},
+		{"id": 90, "name": "Jaemes Mc Arthur", "gender": "male", "age": 28, "image": "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc1/t1.0-1/c204.44.551.551/s160x160/575126_10150657909871901_1903505892_n.jpg"}
+	],
+	"groups": [
+		{"name": "Desarrollo", "members": [1, 2, 3, 4, 8, 24, 26]},
+		{"name": "Diseño", "members": [2, 6]},
+		{"name": "Comercial", "members": [9, 10, 115, 75]},
+		{"name": "Gerencia", "members": [5, 75, 90]},
+		{"name": "Mascotas", "members": [89, 100]},
+		{"name": "Soporte", "members": [1, 3, 4, 7, 68, 26]},
+		{"name": "Infraestructura", "members": [68]},
+		{"name": "Mantenimiento", "members": [78]}
+	]
+}
