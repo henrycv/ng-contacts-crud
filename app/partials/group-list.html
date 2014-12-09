@@ -34,18 +34,20 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="user in groups | filter:query | orderBy:orderProp:reverse">
-            <td>{{user.id}}</td>
-            <td>{{user.name}}</td>
-            <td>{{user.members}}</td>
+          <tr ng-repeat="group in groups | filter:query | orderBy:orderProp:reverse">
+            <td>{{group.id}}</td>
+            <td>{{group.name}}</td>
             <td>
-              <a href="#/user/read/1" class="btn btn-default btn-xs btn-info" title="View Details">
+              
+            </td>
+            <td>
+              <a href="#/group/read/1" class="btn btn-default btn-xs btn-info" title="View Details">
                 <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
               </a>
-              <a href="#/user/update/1" class="btn btn-default btn-xs btn-warning" title="Edit Contact">
+              <a href="#/group/update/1" class="btn btn-default btn-xs btn-warning" title="Edit Contact">
                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
               </a>
-              <a href="#/user/delete/1" class="btn btn-default btn-xs btn-danger" title="Remove Contact">
+              <a href="#/group/delete/1" class="btn btn-default btn-xs btn-danger" title="Remove Contact">
                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
               </a>
               <a href="#/group/read/1" class="btn btn-default btn-xs btn-primary" title="Edit Contact Group">

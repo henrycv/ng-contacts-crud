@@ -18,7 +18,6 @@ var contactsControllers = angular.module('contactsControllers', [])
       $scope.contacts = storeData.data.contacts;
     }
 
-
     $scope.orderProp = 'id';
     $scope.APP_CONTANTS = APP_CONTANTS;
   }])
@@ -63,13 +62,15 @@ var contactsControllers = angular.module('contactsControllers', [])
 .controller('groupListCtrl', ['$scope', 'storeData',
   function($scope, storeData) {
 
-    if (typeof storeData.response == 'undefined') {
-      storeData.then(function(data) {
-        storeData.response = data.response;
-        $scope.groups = storeData.response.groups;
-      });
+    if (!storeData.isLoaded()) {
+      storeData.getData()
+        .then(
+          function(response){
+            $scope.groups = response.data.groups;
+          }
+        );
     } else {
-      $scope.groups = storeData.response.groups;
+      $scope.groups = storeData.data.groups;
     }
 
     $scope.orderProp = 'id';

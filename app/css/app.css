@@ -102,10 +102,10 @@ h1 {
   border-bottom: 0;
 }
 
-/*input.ng-dirty,*/
+/*input.ng-dirty,
 input.ng-invalid {
   border: thin solid red;
-}
+}*/
 
 .capitalize {
   text-transform: capitalize;

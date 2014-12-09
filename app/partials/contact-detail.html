@@ -1,9 +1,11 @@
-<form class="form-horizontal" role="form" ng-controller="contactDetailCtrl" novalidate>
+<form class="form-horizontal" role="form" name="contactForm" novalidate>
 
-  <div class="form-group">
-    <label for="inputName3" class="col-sm-2 control-label">Name</label>
+  <div class="form-group" ng-class="{ 'has-error': contactForm.contactName.$invalid && contactForm.contactName.$dirty }">
+    <label for="inputName3" class="col-sm-2 control-label">
+      Name
+    </label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="contactName" name="contactName" ng-model="contact.name" validContactName />
+      <input type="text" class="form-control" id="contactName" name="contactName" ng-model="contact.name" required  placeholder="Name" />
     </div>
   </div>
 
@@ -32,10 +34,10 @@
     </div>
   </div>
 
-  <div class="form-group">
+  <div class="form-group" ng-class="{ 'has-error': contactForm.contactAge.$invalid }" >
     <label for="inputAge3" class="col-sm-2 control-label">Age</label>
     <div class="col-sm-10">
-      <input type="number" class="form-control" id="contactAge" name="contactAge" ng-model="contact.age" required />
+      <input type="number" class="form-control" id="contactAge" name="contactAge" ng-model="contact.age"  required placeholder="Age" />
     </div>
   </div>
 
