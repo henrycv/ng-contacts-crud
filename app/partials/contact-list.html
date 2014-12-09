@@ -1,14 +1,15 @@
 <div class="user-list container-fluid panel-body">
-
   <div class="">
     <div class="">
       <!--New search box-->
       <input type="text" class="form-control" placeholder="Search people..." ng-model="query">
     </div>
   </div>
-
-  <p>&nbsp;</p>
-
+  <div class="text-right addButton">
+    <a href="#/contact/create/">
+      <button type="button" class="btn btn-success">Add Contact</button>
+    </a>
+  </div>
   <div class="">
     <div class="">
       <!--Body content-->
@@ -17,22 +18,22 @@
           <tr class="success">
             <th>
               <a href="" ng-click="orderProp = 'id'; sbid=(sbid == '&#9660' ? '&#9650' : '&#9660'); reverse=!reverse" ng-init="sbid='&#9660'">
-                ID {{sbid}}
+              ID {{sbid}}
               </a>
             </th>
             <th>
               <a href="" ng-click="orderProp = 'name'; sbna=(sbna == '&#9660' ? '&#9650' : '&#9660'); reverse=!reverse" ng-init="sbna='&#9660'">
-                NAME {{sbna}}
+              NAME {{sbna}}
               </a>
             </th>
             <th>
               <a href="" ng-click="orderProp = 'gender'; sbge=(sbge == '&#9660' ? '&#9650' : '&#9660'); reverse=!reverse" ng-init="sbge='&#9660'">
-                GENDER {{sbge}}
+              GENDER {{sbge}}
               </a>
             </th>
             <th>
               <a href="" ng-click="orderProp = 'age'; abag=(abag == '&#9660' ? '&#9650' : '&#9660'); reverse=!reverse" ng-init="abag='&#9660'">
-                AGE {{abag}}
+              AGE {{abag}}
               </a>
             </th>
             <th>IMAGE</th>
@@ -40,26 +41,26 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="user in users | filter:query | orderBy:orderProp:reverse">
-            <td>{{user.id}}</td>
-            <td>{{user.name}}</td>
-            <td>{{user.gender}}</td>
-            <td>{{user.age}}</td>
+          <tr ng-repeat="contact in contacts | filter:query | orderBy:orderProp:reverse">
+            <td>{{contact.id}}</td>
+            <td>{{contact.name}}</td>
+            <td>{{contact.gender}}</td>
+            <td>{{contact.age}}</td>
             <td>
-              <img ng-src="{{user.image}}" imgprofileerror-src="{{APP_CONTANTS.imgProfileDefault}}"  class="img-thumbnail thumb" />
+              <img ng-src="{{contact.image}}" imgprofileerror-src="{{APP_CONTANTS.imgProfileDefault}}"  class="img-thumbnail thumb" />
             </td>
             <td>
-              <a href="#/user/read/1" class="btn btn-default btn-xs btn-info" title="View Details">
-                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+              <a href="#/contact/read/{{contact.id}}" class="btn btn-default btn-xs btn-info" title="View Details">
+              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
               </a>
-              <a href="#/user/update/1" class="btn btn-default btn-xs btn-warning" title="Edit Contact">
-                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+              <a href="#/contact/update/{{contact.id}}" class="btn btn-default btn-xs btn-warning" title="Edit Contact">
+              <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
               </a>
-              <a href="#/user/delete/1" class="btn btn-default btn-xs btn-danger" title="Remove Contact">
-                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+              <a href="#/contact/delete/{{contact.id}}" class="btn btn-default btn-xs btn-danger" title="Remove Contact">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
               </a>
-              <a href="#/group/read/1" class="btn btn-default btn-xs btn-primary" title="Edit Contact Group">
-                <span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
+              <a href="#/group/read/{{contact.id}}" class="btn btn-default btn-xs btn-primary" title="Edit Contact Group">
+              <span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
               </a>
             </td>
           </tr>

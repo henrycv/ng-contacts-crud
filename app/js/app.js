@@ -5,7 +5,9 @@
 var contactApp = angular.module('contactApp', [
   'ngRoute',
 
+  'contactFactories',
   'contactsControllers',
+  'contactDirectives',
   'contactFilters',
   'contactServices'
 ])
@@ -13,12 +15,16 @@ var contactApp = angular.module('contactApp', [
 .config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-      when('/users', {
-        templateUrl: 'partials/user-list.html',
+      when('/contacts', {
+        templateUrl: 'partials/contact-list.html',
         controller: 'contactListCtrl'
       }).
-      when('/user/:action/:userId/', {
-        templateUrl: 'partials/user-detail.html',
+      when('/contact/:action/:contactId/', {
+        templateUrl: 'partials/contact-detail.html',
+        controller: 'contactDetailCtrl'
+      }).
+      when('/contact/:action/', {
+        templateUrl: 'partials/contact-detail.html',
         controller: 'contactDetailCtrl'
       }).
       when('/groups', {
@@ -30,6 +36,6 @@ var contactApp = angular.module('contactApp', [
         controller: 'contactDetailCtrl'
       }).
       otherwise({
-        redirectTo: '/users'
+        redirectTo: '/contacts'
       });
   }]);

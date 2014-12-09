@@ -1,20 +1,25 @@
-<form class="form-horizontal" role="form">
+<form class="form-horizontal" role="form" ng-controller="contactDetailCtrl" novalidate>
 
   <div class="form-group">
     <label for="inputName3" class="col-sm-2 control-label">Name</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputName3" placeholder="Name">
+      <input type="text" class="form-control" id="contactName" name="contactName" ng-model="contact.name" validContactName />
     </div>
   </div>
 
 
   <div class="form-group gender-dropdown">
-    <label for="inputGender3" class="col-sm-2 control-label">Gender</label>
+    <label for="inputGender3" class="col-sm-2 control-label">Gender {{contact.gender}}</label>
     <div class="col-sm-10">
       <div class="btn-group">
-        <button id="userAge" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-          <span id="userAgeLabel">Action</span> <span class="caret"></span>
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="contactGender" name="contactGender" ng-model="contact.gender"  >
+          <span id="contactGenderLabel" name="contactGenderLabel" class="capitalize" ng-model="contactGenderLabel" gender >
+            {{contact.gender == 'male' || contact.gender == 'female' ? contact.gender : 'Action'}}&nbsp;
+          </span>
+          <span class="caret"></span>
         </button>
+
+
         <ul class="dropdown-menu" role="menu">
           <li>
             <a href="#" ng-click="toggleDropdown($event)">Female</a>
@@ -30,7 +35,7 @@
   <div class="form-group">
     <label for="inputAge3" class="col-sm-2 control-label">Age</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputAge3" placeholder="text">
+      <input type="number" class="form-control" id="contactAge" name="contactAge" ng-model="contact.age" required />
     </div>
   </div>
 
@@ -45,7 +50,7 @@
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <button type="submit" class="btn btn-primary">Submit</button>
-      <button type="reset" class="btn btn-default">Reset</button>
+      <button type="button" class="btn btn-default" ng-click="reset(master)">Reset</button>
       <button type="submit" class="btn btn-default">Cancel</button>
     </div>
   </div>
