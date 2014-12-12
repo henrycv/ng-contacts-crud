@@ -38,7 +38,12 @@
             <td>{{group.id}}</td>
             <td>{{group.name}}</td>
             <td>
-              
+              <span ng-repeat="contact in group.members track by $index">
+              <span ng-class="{'hideIt': $first}"> | </span>
+                <a href="#/contact/read/{{contact.id}}/">
+                  {{contact.name}}
+                </a>
+              </span>
             </td>
             <td>
               <a href="#/group/read/1" class="btn btn-default btn-xs btn-info" title="View Details">

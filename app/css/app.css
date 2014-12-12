@@ -114,3 +114,7 @@ input.ng-invalid {
 .addButton {
   margin: 20px 0;
 }
+
+.hideIt {
+  display: none;
+}

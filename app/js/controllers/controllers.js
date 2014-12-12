@@ -35,15 +35,16 @@ var contactsControllers = angular.module('contactsControllers', [])
             function(response){
               var contactFound = storeData.findContactById($routeParams.contactId);
               if (contactFound) {
-
+                $scope.contact = storeData.findContactById($routeParams.contactId);
+                $scope.master = angular.copy($scope.contact);
+                $scope.groups = storeData.data.groups;
               }
-              $scope.contact = storeData.findContactById($routeParams.contactId);
-              $scope.master = angular.copy($scope.contact);
             }
           );
       } else {
         $scope.contact = storeData.findContactById($routeParams.contactId);
         $scope.master = angular.copy($scope.contact);
+        $scope.groups = storeData.data.groups;
       }
     }
 
